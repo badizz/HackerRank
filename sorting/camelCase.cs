@@ -26,7 +26,7 @@ public class camelCase
         return res;
     }
 
-    //solution with LINQ
+    //other solution with LINQ like solution 1
     public static int camelcase3(string s)
     {
         int res = s.ToArray().Where(x => Char.IsUpper(x) == true).Count();
