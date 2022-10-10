@@ -15,7 +15,7 @@ public class camelCase
     }
 
     //solution 2
-    public static int camelcase(string s)
+    public static int camelcase2(string s)
     {
         int res = 1;
         for (int k = 0; k < s.Length; k++){
@@ -24,5 +24,12 @@ public class camelCase
             }
         }
         return res;
+    }
+
+    //solution with LINQ
+    public static int camelcase3(string s)
+    {
+        int res = s.ToArray().Where(x => Char.IsUpper(x) == true).Count();
+        return res + 1;
     }
 }
