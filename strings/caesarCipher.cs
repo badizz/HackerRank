@@ -2,6 +2,7 @@
 
 public class caesarCipher
 {
+    //solution 1
     public static string caesarCipher(string s, int k)
     {
         char[] upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
@@ -27,6 +28,26 @@ public class caesarCipher
                     tmp = (letterIndex + k) % 26;
                     result.Append(lowerAlphabet[tmp]);
                 }
+            }
+        }
+        return result.ToString();
+    }
+
+
+
+    //other way
+    public static string caesarCipher2(string s, int k)
+    {
+        StringBuilder result = new StringBuilder();
+        foreach (var c in s)
+        {
+            if (!char.IsLetter(c)){
+                result.Append(c);
+            }
+            else{
+                char startedCharacter = (char.IsUpper(c) == true) ? 'A' : 'a';
+                int index = (c + k - startedCharacter) % 26;
+                result.Append(Convert.ToChar(index + startedCharacter));
             }
         }
         return result.ToString();
