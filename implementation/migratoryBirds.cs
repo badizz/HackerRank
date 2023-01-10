@@ -26,4 +26,20 @@ class migratoryBirds
 
         return result.Key;
     }
+
+
+    // different solution 
+    public static int migratoryBirds2(List<int> arr)
+    {
+        var indexGroups = (from c in arr
+                           group c by c into g
+                           select new
+                           {
+                               indx = g.Key,
+                               count = g.Count(),
+                           }).OrderByDescending(x => x.count).ThenBy(k => k.indx).First();
+
+        return indexGroups.indx;
+    }
+
 }
